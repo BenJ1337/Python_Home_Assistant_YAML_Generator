@@ -1,0 +1,14 @@
+- switch:
+    name: 'Boost Heat'
+    object_id: '{{ sensor.identifier }}_boost_heating'
+    unique_id: '{{ sensor.identifier }}_boost_heating'
+    value_template: "{{ '{{' }} value_json.boost_heating {{ '}}' }}"
+    state_topic: '{{ sensor.state_topic }}'
+    state_on: "ON"
+    state_off: "OFF"
+    command_topic: "{{ sensor.state_topic }}/set"
+    payload_on: '{"boost_heating": "ON"}'
+    payload_off: '{"boost_heating": "OFF"}'
+    qos: 1
+    device_class: 'switch'
+{% include "attribute/availability.jinja" %}

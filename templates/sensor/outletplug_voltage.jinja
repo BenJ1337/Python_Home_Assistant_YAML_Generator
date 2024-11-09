@@ -1,0 +1,10 @@
+- sensor:
+    name: 'Voltage'
+    unique_id: '{{ sensor.identifier }}_voltage'
+    object_id: '{{ sensor.identifier }}_voltage'
+    state_topic: "{{ sensor.state_topic }}"
+    value_template: "{{ '{{' }} value_json.voltage {{ '}}' }}"
+    device_class: 'voltage'
+    unit_of_measurement: 'V'
+    qos: 1
+{% include "attribute/availability.jinja" %}

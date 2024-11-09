@@ -1,0 +1,10 @@
+- sensor:
+    name: 'Current'
+    unique_id: '{{ sensor.identifier }}_current'
+    object_id: '{{ sensor.identifier }}_current'
+    state_topic: "{{ sensor.state_topic }}"
+    value_template: "{{ '{{' }} value_json.current {{ '}}' }}"
+    device_class: 'current'
+    unit_of_measurement: 'A'
+    qos: 1
+{% include "attribute/availability.jinja" %}

@@ -1,0 +1,9 @@
+- binary_sensor:
+    state_topic: 'zigbee2mqtt/HEIMAN/HS1SA/sensor-1'
+    device_class: 'smoke'
+    unique_id: 'SmokeDetector1'
+    payload_off: false
+    payload_on: true
+    value_template: '{{ '{{' }} value_json.smoke {{ '}}' }}'
+    qos: 1
+{% include "attribute/availability.jinja" %}

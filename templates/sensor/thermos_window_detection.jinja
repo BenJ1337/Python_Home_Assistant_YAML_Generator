@@ -1,0 +1,14 @@
+- switch:
+    name: 'Window Detection'
+    object_id: '{{ sensor.identifier }}_window_detection'
+    unique_id: '{{ sensor.identifier }}_window_detection'
+    state_topic: '{{ sensor.state_topic }}'
+    value_template: "{{ '{{' }} value_json.window_detection {{ '}}' }}"
+    state_on: 'ON'
+    state_off: 'OFF'
+    command_topic: "{{ sensor.state_topic }}/set"
+    payload_on: '{"window_detection": "ON"}'
+    payload_off: '{"window_detection": "OFF"}'
+    qos: 1
+    device_class: 'switch'
+{% include "attribute/availability.jinja" %}

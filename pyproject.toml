@@ -1,0 +1,20 @@
+[build-system]
+requires = ["flit_core >= 3.4"]
+build-backend = "flit_core.buildapi"
+
+[project]
+name = "home-assistant-yml-generator"
+description = "a tool to easily create yml configuration files"
+version = "0.1.0"
+requires-python = ">= 3.12"
+dependencies = [
+    "jinja2 == 3.1.4"
+]
+
+[project.optional-dependencies]
+dev = [
+        "black == 24.10.0"
+]
+
+[project.scripts]
+generateYAML = 'home_assistant_yml_generator.main:run'

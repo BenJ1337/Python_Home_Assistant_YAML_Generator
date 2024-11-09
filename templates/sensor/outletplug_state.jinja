@@ -1,0 +1,11 @@
+- switch:
+    name: 'State'
+    unique_id: '{{ sensor.identifier }}_state'
+    object_id: '{{ sensor.identifier }}_state'
+    state_topic: "{{ sensor.state_topic }}"
+    value_template: "{{ '{{' }} value_json.state {{ '}}' }}"
+    command_topic: "{{ sensor.state_topic }}/set"
+    state_on: "ON"
+    state_off: "OFF"
+    qos: 1
+{% include "attribute/availability.jinja" %}

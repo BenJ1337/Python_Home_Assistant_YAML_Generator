@@ -1,0 +1,15 @@
+- climate:
+    name: 'Climate'
+    object_id: '{{ sensor.identifier }}_climate'
+    unique_id: '{{ sensor.identifier }}_climate'
+    current_temperature_topic: '{{ sensor.state_topic }}'
+    current_temperature_template: '{{ '{{' }} value_json.local_temperature {{ '}}' }}'
+    min_temp: '5'
+    max_temp: '30'
+    value_template: "{{ '{{' }} value_json.occupied_heating_setpoint {{ '}}' }}"
+    temperature_command_topic: '{{ sensor.state_topic }}/set'
+    temperature_command_template: '{"occupied_heating_setpoint": {{ '{{' }} value {{ '}}' }} }'
+    temperature_state_topic: '{{ sensor.state_topic }}'
+    temperature_state_template: '{{ '{{' }} value_json.occupied_heating_setpoint {{ '}}' }}'
+    modes: []
+{% include "attribute/availability.jinja" %}

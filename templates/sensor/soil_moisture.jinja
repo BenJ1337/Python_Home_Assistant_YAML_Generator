@@ -1,0 +1,10 @@
+- sensor:
+    name: 'Feuchtigkeit'
+    unique_id: '{{ sensor.identifier }}_soil_moisture'
+    object_id: '{{ sensor.identifier }}_soil_moisture'
+    state_topic: "{{ sensor.state_topic }}"
+    value_template: "{{ '{{' }} value_json.soil_moisture {{ '}}' }}"
+    device_class: 'humidity'
+    unit_of_measurement: '%'
+    qos: 1
+{% include "attribute/availability.jinja" %}

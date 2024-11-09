@@ -1,0 +1,10 @@
+- sensor:
+    name: 'Batterie'
+    object_id: '{{ sensor.identifier }}_battery'
+    unique_id: '{{ sensor.identifier }}_battery'
+    state_topic: '{{ sensor.state_topic }}'
+    value_template: "{{ '{{' }} value_json.battery {{ '}}' }}"
+    device_class: 'battery'
+    unit_of_measurement: '%'
+    qos: 1
+{% include "attribute/availability.jinja" %}

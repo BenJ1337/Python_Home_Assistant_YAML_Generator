@@ -1,0 +1,10 @@
+- sensor:
+    name: 'Energy'
+    unique_id: '{{ sensor.identifier }}_energy'
+    object_id: '{{ sensor.identifier }}_energy'
+    state_topic: "{{ sensor.state_topic }}"
+    value_template: "{{ '{{' }} value_json.energy {{ '}}' }}"
+    device_class: 'energy'
+    unit_of_measurement: 'kWh'
+    qos: 1
+{% include "attribute/availability.jinja" %}

@@ -1,0 +1,13 @@
+- binary_sensor:
+    name: 'Contact'
+    object_id: '{{ sensor.identifier }}_contact'
+    unique_id: '{{ sensor.identifier }}_contact'
+    state_topic: '{{ sensor.state_topic }}'
+    value_template: "{{ '{{' }} value_json.contact {{ '}}' }}"
+    device_class: 'opening'
+    payload_off: true
+    payload_on: false
+    qos: 1
+    device:
+      identifiers: '{{ sensor.identifier }}'
+{% include "attribute/availability.jinja" %}

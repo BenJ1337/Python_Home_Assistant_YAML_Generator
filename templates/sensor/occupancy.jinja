@@ -1,0 +1,11 @@
+- binary_sensor:
+    name: 'Bewegung'
+    unique_id: '{{ sensor.identifier }}_occupancy'
+    object_id: '{{ sensor.identifier }}_occupancy'
+    state_topic: "{{ sensor.state_topic }}"
+    value_template: "{{ '{{' }}  value_json.occupancy {{ '}}' }}"
+    payload_off: false
+    payload_on: true
+    device_class: 'motion'
+    qos: 1
+{% include "attribute/availability.jinja" %}

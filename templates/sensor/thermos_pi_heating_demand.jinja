@@ -1,0 +1,10 @@
+- number:
+    name: 'Pi Heating Demand'
+    object_id: '{{ sensor.identifier }}_pi_heating_demand'
+    unique_id: '{{ sensor.identifier }}_pi_heating_demand'
+    state_topic: '{{ sensor.state_topic }}'
+    value_template: "{{ '{{' }} value_json.pi_heating_demand {{ '}}' }}"
+    command_topic: "{{ sensor.state_topic }}/set"
+    command_template: "{ pi_heating_demand: { value {{ '}}' }}"
+    min: 0
+{% include "attribute/availability.jinja" %}
